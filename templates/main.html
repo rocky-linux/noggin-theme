@@ -1,4 +1,5 @@
 {% extends "master.html" %}
+{% block website %}{{_("Rocky Account Services")}}{% endblock %}
 
 
 {% block head %}
@@ -58,7 +59,6 @@
                 <a href="https://github.com/fedora-infra/noggin">noggin</a>
             {% endset %}
             <div><small>{{_("Powered by %(noggin_link)s", noggin_link=noggin_link)}}</small></div>
-            <div class="text-muted"><small>{{ ipa.ipa_version|default('') }}</small></div>
         </div>
     </footer>
 {% endblock %}
@@ -83,20 +83,43 @@
 
 {# an optional macro defining an element to show for editing group details #}
 {# typically, it used to link to a ticket tracker for an admin to edit a group #}
-{#
 {% macro edit_group_details() %}
+    {% if current_user_is_sponsor and sponsor_form %}
+        <div class="col">
+            <a class="btn btn-primary" href="https://git.rockylinux.org/account-services/new_issue" title="{{_('Create a request to change the sponsors or information of this group.')}}">
+               {{_("Request Change of Details")}}
+            </a>
+        </div>
+    {% endif %}
 {% endmacro %}
-#}
 
 {# an optional macro defining an element to show for account disable #}
 {# typically, it used to link to a ticket tracker for an admin to perform the disable #}
-{#
 {% macro request_disable_account() %}
+    <div class="col-auto ml-auto">
+	<a class="btn btn-sm btn-outline-primary" href="https://git.rockylinux.org/account-services/new_issue" title="{{_('Create a request to disable your account')}}">
+	    {{_("Request account deletion")}}
+        </a>
+    </div>
 {% endmacro %}
-#}
+
 
 {# an optional macro defining an element to show for lost OTP tokens #}
-{#
 {% macro lost_otp_token() %}
+<div class="container py-4">
+    <div class="row">
+      <div class="col-6 mx-auto">
+        <div class="card">
+            <div class="card-body">
+              <h5 id="pageheading">{{_("Lost OTP token?")}}</h5>
+              {% set admin_email %}
+              <a href="mailto:identitymanagement@rockylinux.org?Subject=Lost%20OTP" target="_top">identitymanagement@rockylinux.org</a>
+              {% endset %}
+              <p>{{_("If you have lost your OTP token you will need to send an email to %(admin_email)s. Please sign this email using the GPG key associated with your account if possible, so that the administrator can verify your identity.", admin_email=admin_email)}}</p>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
 {% endmacro %}
-#}
+
