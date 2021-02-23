@@ -86,7 +86,7 @@
 {% macro edit_group_details() %}
     {% if current_user_is_sponsor and sponsor_form %}
         <div class="col">
-            <a class="btn btn-primary" href="https://git.rockylinux.org/account-services/new_issue" title="{{_('Create a request to change the sponsors or information of this group.')}}">
+            <a class="btn btn-primary" href="https://bugs.rockylinux.org/bug_report_page.php" title="{{_('Create a request to change the sponsors or information of this group.')}}">
                {{_("Request Change of Details")}}
             </a>
         </div>
@@ -97,7 +97,7 @@
 {# typically, it used to link to a ticket tracker for an admin to perform the disable #}
 {% macro request_disable_account() %}
     <div class="col-auto ml-auto">
-	<a class="btn btn-sm btn-outline-primary" href="https://git.rockylinux.org/account-services/new_issue" title="{{_('Create a request to disable your account')}}">
+	<a class="btn btn-sm btn-outline-primary" href="https://bugs.rockylinux.org/bug_report_page.php" title="{{_('Create a request to disable your account')}}">
 	    {{_("Request account deletion")}}
         </a>
     </div>
