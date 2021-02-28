@@ -3,7 +3,7 @@
 
 
 {% block head %}
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="{{ url_for('theme.static', filename='vendor/bootstrap-4.3.1/bootstrap.min.nodata.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ url_for('theme.static', filename='css/default.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
@@ -11,7 +11,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark justify-content-between border-bottom">
         <a class="navbar-brand" href="{{ url_for('root.root') }}"><img src="{{ url_for('theme.static', filename='images/rocky-accounts-logo.png') }}" alt="Rocky Linux Account Services"></a>
         {% if current_user %}
-        <form><input id="search" type="search" class="typeahead form-control" autocomplete="off" placeholder="{{_('search')}}"></form>
+        <form><input id="search" type="search" class="typeahead form-control" autocomplete="off" placeholder="{{_('search...')}}"></form>
         <ul class="navbar-nav align-items-center">
             <li class="nav-item">
                 <a class="nav-link color-white" href="{{ url_for('.groups') }}">{{_("Groups")}}</a>
@@ -64,9 +64,9 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script nonce="{{ csp_nonce() }}" src="{{ url_for('theme.static', filename='vendor/jquery/jquery-3.3.1.min.js') }}"></script>
+    <script nonce="{{ csp_nonce() }}" src="{{ url_for('theme.static', filename='vendor/popper-1.14.7/popper.min.js') }}"></script>
+    <script nonce="{{ csp_nonce() }}" src="{{ url_for('theme.static', filename='vendor/bootstrap-4.3.1/bootstrap.min.js') }}"></script>
     {{ super() }}
 {% endblock %}
 
