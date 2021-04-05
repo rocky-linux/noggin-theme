@@ -53,14 +53,44 @@
 {% endblock %}
 
 {% block footer %}
-    <footer class="bg-light border-top py-4 mt-4">
-        <div class="container h6 text-center">
+    <div class="footer py-5">
+      <div class="container">
+        <div class="row footerlinks justify-content-center">
+          <div class="col-sm-3 col-4 mt-3">
+            <div>
+              <dl>
+                <dt class="text-uppercase h4"><strong>About</strong></dt>
+                <dd><a href="https://rockylinux.org/">Rocky Linux</a></dd>
+                <dd><a href="https://wiki.rockylinux.org/">Rocky Wiki</a></dd>
+                <dd><a href="https://rockylinux.org/community-charter/">Community Charter</a></dd>
+                <dd><a href="https://rockylinux.org/sponsors/">Sponsors</a></dd>
+                <dd><a href="https://rockylinux.org/partners/">Partners</a></dd>
+              </dl>
+            </div>
+          </div>
+          <div class="col-sm-3 col-4 mt-3">
+            <div>
+              <dl>
+                <dt class="text-uppercase h4"><strong>Community and Support</strong></dt>
+                <dd><a href="https://wiki.rockylinux.org/contributing">Join Rocky</a></dd>
+                <dd><a href="https://chat.rockylinux.org/">Mattermost</a></dd>
+                <dd><a href="https://reddit.com/r/rockylinux">Reddit</a></dd>
+                <dd><a href="https://forums.rockylinux.org/">Forums</a></dd>
+                <dd><a href="https://accounts.rockylinux.org/">Account Services</a></dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <div class="row footerlinks">
+          <div class="col-12 text-center">
             {% set noggin_link %}
                 <a href="https://github.com/fedora-infra/noggin">noggin</a>
             {% endset %}
             <div><small>{{_("Powered by %(noggin_link)s", noggin_link=noggin_link)}}</small></div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
 {% endblock %}
 
 {% block scripts %}
