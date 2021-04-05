@@ -97,9 +97,10 @@
 {# typically, it used to link to a ticket tracker for an admin to perform the disable #}
 {% macro request_disable_account() %}
     <div class="col-auto ml-auto">
-	<a class="btn btn-sm btn-outline-primary" href="https://bugs.rockylinux.org/bug_report_page.php" title="{{_('Create a request to disable your account')}}">
-	    {{_("Request account deletion")}}
-        </a>
+	    <a class="btn btn-sm btn-outline-primary" href="https://bugs.rockylinux.org/bug_report_page.php" title="{{_('Create a request to disable your account')}}">
+	    {{_("Request Account to be Disabled")}}
+      </a>
+      <br>For more information on the steps to disable your account, please <a href="https://wiki.rockylinux.org/en/team/infrastructure/idm/pdr-request-delete">click here</a>.</br>
     </div>
 {% endmacro %}
 
@@ -123,3 +124,17 @@
 </div>
 {% endmacro %}
 
+{% macro spamcheck_contact() %}
+{% set email_link %}
+<a href="mailto:identitymanagentment+spamcheck@rockylinux.org?Subject=Not%20Spam:%20{{ user.username }}">identitymanagentment@rockylinux.org</a>
+{% endset %}
+<p>
+    {{ _("To let us know that you're not a spammer, please send an email to %(email_link)s and explain the situation.", email_link=email_link) }}
+</p>
+{% endmacro %}
+
+{# Optional login note, we need a code of conduct #}
+{#
+{% macro login_note() %}
+{% endmacro %}
+#}
