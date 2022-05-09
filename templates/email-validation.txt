@@ -8,4 +8,4 @@
 
 {{_("If you did not create an account for username %(username)s, you can ignore this email.", username=user.username)}}
 
--- {{_("The Rocky Linux IdM Team")}}
+-- {{_("Rocky IdM Team")}}
