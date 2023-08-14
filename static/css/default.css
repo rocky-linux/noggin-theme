@@ -4,7 +4,7 @@ body {
   font-weight: 400;
   color: #2e443d;
   /* This does not affect the backgrounds of some boxes, modify with care */
-  background-color: #ffffff;
+  background-color: #10839f;
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {

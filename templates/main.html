@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block website %}{{_("Rocky Account Services")}}{% endblock %}
+{% block website %}{{_("RESF Account Services")}}{% endblock %}
 
 
 {% block head %}
@@ -9,7 +9,7 @@
 
 {% block navbar %}
     <nav class="navbar navbar-expand-lg navbar-dark justify-content-between border-bottom">
-        <a class="navbar-brand" href="{{ url_for('root.root') }}"><img src="{{ url_for('theme.static', filename='images/rocky-accounts-logo.png') }}" alt="Rocky Linux Account Services"></a>
+        <a class="navbar-brand" href="{{ url_for('root.root') }}"><img src="{{ url_for('theme.static', filename='images/rocky-accounts-logo.png') }}" alt="RESF Account Services"></a>
         {% if current_user %}
         <form><input id="search" type="search" class="typeahead form-control" autocomplete="off" placeholder="{{_('search...')}}"></form>
         <ul class="navbar-nav align-items-center">

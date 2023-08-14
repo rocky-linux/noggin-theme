@@ -8,4 +8,4 @@
 
 {{_("If you did not set the email address %(address)s in your account %(username)s, you can ignore this email.", username=user.username, address=address)}}
 
--- {{_("Rocky IdM Team")}}
+-- {{_("Rocky Infrastructure Team")}}
