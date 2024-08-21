@@ -14,6 +14,7 @@ body {
 
 /* Try to mesh with green logo image */
 .navbar-dark { background-color: #18181b; color: #fff; }
+.navbar { background-color: #18181b; color: #fff; }
 
 .row { margin-left: 0 }
 
@@ -23,8 +24,8 @@ body {
 .btn-outline-primary { color: #5eac93; background-color: #fff; border-color: #81c1ac; }
 .btn-outline-primary:hover,
 .btn-primary:hover { color: #fff; background-color: #5eac93; border-color: #81c1ac; }
-a, .btn-link { color: #5eac93 }
-a:hover, .btn-link { color: #81c1ac }
+a, .btn-link, .nav-link { color: #5eac93 }
+a:hover, .btn-link, .nav-link { color: #81c1ac }
 
 .badge-secondary { background-color: #2e3344; }
 .text-info { color: #88d0ba }
