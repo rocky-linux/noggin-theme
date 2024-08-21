@@ -2,9 +2,9 @@
 
 body {
   font-weight: 400;
-  color: #2e443d;
+  color: #2e3344;
   /* This does not affect the backgrounds of some boxes, modify with care */
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
@@ -14,7 +14,6 @@ body {
 
 /* Try to mesh with green logo image */
 .navbar-dark { background-color: #18181b; color: #fff; }
-.navbar { background-color: #18181b; color: #fff; }
 
 .row { margin-left: 0 }
 
@@ -28,8 +27,10 @@ a, .btn-link, .nav-link { color: #5eac93 }
 a:hover, .btn-link, .nav-link { color: #81c1ac }
 
 .badge-secondary { background-color: #2e3344; }
+
 .text-info { color: #88d0ba }
 .text-success { color: #8fbcad; }
+
 div.media.align-items-center img { border-radius: 50%; }
 
 .card.card-body {
