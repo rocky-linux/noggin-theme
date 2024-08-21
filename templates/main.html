@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block navbar %}
-    <nav class="navbar navbar-expand-lg navbar-dark justify-content-between border-bottom">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary justify-content-between border-bottom px-3">
         <a class="navbar-brand" href="{{ url_for('root.root') }}"><img src="{{ url_for('theme.static', filename='images/rocky-accounts-logo.png') }}" alt="RESF Account Services"></a>
         {% if current_user %}
         <form><input id="search" type="search" class="typeahead form-control" autocomplete="off" placeholder="{{_('search...')}}"></form>
@@ -21,7 +21,7 @@
                         <img src="{{ gravatar(current_user.mail if current_user.mail else 'default', 30) }}" class="bg-white"/>
 
                 </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="{{ url_for('.user', username=current_user.username) }}">{{_("Profile")}}</a>
                     <a class="dropdown-item" href="{{ url_for('.user_settings_profile', username=current_user.username) }}">{{_("Settings")}}</a>
                     {% if config["STAGE_USERS_ROLE"] in current_user.roles %}
@@ -35,13 +35,11 @@
     </nav>
     {% with flashes = get_flashed_messages(with_categories=True) %}
         {% if flashes %}
-        <div class="container flash-messages fixed-top mt-5">
+        <div class="toast-container flash-messages position-fixed mt-2 top-0 start-50 translate-middle-x">
             {% for category, flash in flashes %}
-            <div class="alert alert-{{ category }} alert-dismissible fade show">
-                {{ flash }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+            <div class="toast text-white bg-{{ category }} d-flex" {{"data-bs-autohide=false" if category != 'success'}} role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-body">{{ flash }}</div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
             {% endfor %}
         </div>
@@ -56,22 +54,20 @@
 {% endblock %}
 
 {% block footer %}
-<footer class="bg-light border-top py-4 mt-4">
-        <div class="row footerlinks">
-          <div class="col-12 text-center">
+    <footer class="bg-light border-top py-4 mt-4">
+        <div class="container h6 text-center">
             {% set noggin_link %}
                 <a href="https://github.com/fedora-infra/noggin">noggin</a>
             {% endset %}
-            <div><small>{{_("Powered by %(noggin_link)s", noggin_link=noggin_link)}}</small></div>
-          </div>
+            <div><small>{{_("Powered by %(noggin_link)s", noggin_link=noggin_link)}} v{{ noggin_version }}</small></div>
+            <div class="text-muted"><small>{{ ipa.ipa_version|default('') }}</small></div>
         </div>
-</footer>
+    </footer>
 {% endblock %}
 
 {% block scripts %}
     <script nonce="{{ csp_nonce() }}" src="{{ url_for('theme.static', filename='vendor/jquery/jquery-3.3.1.min.js') }}"></script>
-    <script nonce="{{ csp_nonce() }}" src="{{ url_for('theme.static', filename='vendor/popper-1.14.7/popper.min.js') }}"></script>
-    <script nonce="{{ csp_nonce() }}" src="{{ url_for('theme.static', filename='vendor/bootstrap-4.3.1/bootstrap.min.js') }}"></script>
+    <script nonce="{{ csp_nonce() }}" src="{{ url_for('theme.static', filename='vendor/bootstrap-5.2.0-beta1/bootstrap.bundle.min.js') }}"></script>
     {{ super() }}
 {% endblock %}
 
